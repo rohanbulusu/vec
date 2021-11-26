@@ -2,4 +2,4 @@
 from numbers import Complex
 
 def isNumber(candidate):
-    return isinstance(Complex)
+    return isinstance(candidate, Complex)

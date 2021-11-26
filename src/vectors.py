@@ -3,9 +3,9 @@ from utils import isNumber
 
 class Vector:
 
-    def __init__(*args):
+    def __init__(self, *args):
 
-        if not all(isNumber, args):
+        if not all(map(isNumber, args)):
             raise TypeError('All components of a Vector must be numbers')
 
         self.__components = args
@@ -32,3 +32,7 @@ class Vector:
         for comp in self.components:
             yield comp
         raise StopIteration
+
+    # mapping protocol (restricted to just the * operator)
+    def __len__(self):
+        return self.dim
