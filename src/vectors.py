@@ -23,5 +23,3 @@ class Vector:
     @property
     def norm(self):
         return self.__norm
-
-    
