@@ -24,4 +24,11 @@ class Vector:
     def norm(self):
         return self.__norm
 
-    
+    # iterator protocol
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        for comp in self.components:
+            yield comp
+        raise StopIteration
