@@ -26,15 +26,11 @@ class Vector:
 
     # iterator protocol
     def __iter__(self):
-        return self
+        return next(self)
 
     def __next__(self):
-        for comp in self.components:
-            yield comp
-        raise StopIteration
+        yield from self.components
 
     # mapping protocol (restricted to just the * operator)
     def __len__(self):
         return self.dim
-
-    
