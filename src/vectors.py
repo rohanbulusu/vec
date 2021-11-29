@@ -12,6 +12,10 @@ class Vector:
         self.__dim = len(args)
         self.__norm = sum(args) / len(args)
 
+    @classmethod
+    def fromsequence(cls, sequence):
+        return cls(*sequence)
+
     @property
     def components(self):
         return self.__components
