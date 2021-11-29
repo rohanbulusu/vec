@@ -45,6 +45,10 @@ class Vector:
     def isVector(candidate):
         return isinstance(candidate, Vector) or issubclass(type(vec), Vector)
 
+    # string representations
+    def __repr__(self):
+        return f'{self.__class__}{self.components}'
+
     # unary operators
     def __pos__(self):
         return Vector(*self.components)
