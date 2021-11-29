@@ -36,3 +36,5 @@ class Vector:
     # mapping protocol (restricted to just the * operator)
     def __len__(self):
         return self.dim
+
+    
