@@ -1,5 +1,6 @@
 
 from utils import isNumber
+from math import sin, cos
 
 class Vector:
 
@@ -94,3 +95,29 @@ class Vector:
         if Vector.isVector(other):
             raise ArithmeticError(f'Cannot divide by a {type(self)}')
         return self * (1 / other)
+
+
+class Vector2(Vector):
+
+    def __init__(self, x, y):
+        super().__init__(x, y)
+        self.__x = x
+        self.__y = y
+
+    @property
+    def x(self):
+        return x
+
+    @property
+    def y(self):
+        return y
+
+    def __complex__(self):
+        return self.x + self.y*1j
+
+    # rotation (in radians) counterclockwise around the origin
+    def rotate(self, theta):
+        return self.__class__(
+            cos(theta)*self.x - sin(theta)*self.y,
+            sin(theta)*self.x + cos(theta)*self.y
+        )
