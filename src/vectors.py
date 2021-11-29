@@ -112,6 +112,10 @@ class Vector2(Vector):
     def y(self):
         return y
 
+    @staticmethod
+    def isVector2(candidate):
+        return Vector.isVector(candidate) and candidate.dim == 2
+
     def __complex__(self):
         return self.x + self.y*1j
 
@@ -120,4 +124,39 @@ class Vector2(Vector):
         return self.__class__(
             cos(theta)*self.x - sin(theta)*self.y,
             sin(theta)*self.x + cos(theta)*self.y
+        )
+
+
+class Vector3(Vector):
+
+    def __init__(self, x, y, z):
+        super().__init__(x, y, z)
+        self.__x = x
+        self.__y = y
+        self.__z = z
+
+    @property
+    def x(self):
+        return self.__x
+
+    @property
+    def y(self):
+        return self.__y
+
+    @property
+    def z(self):
+        return self.__z
+
+    @staticmethod
+    def isVector3(candidate):
+        return Vector.isVector(candidate) and candidate.dim == 3
+
+    def cross(self, vec):
+        if not Vector3.isVector3(vec):
+            raise TypeError(f'{type(vec)} cannot be treated as a {type(self)}')
+
+        return self.__class__(
+            self.y*other.z - self.z*other.y,
+            self.z*other.x - self.x*other.z,
+            self.x*other.y - self.y*other.x
         )
