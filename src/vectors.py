@@ -123,12 +123,19 @@ class Vector2(Vector):
     def __complex__(self):
         return self.x + self.y*1j
 
-    # rotation (in radians) counterclockwise around the origin
-    def rotate(self, theta):
-        return self.__class__(
-            cos(theta)*self.x - sin(theta)*self.y,
-            sin(theta)*self.x + cos(theta)*self.y
+    # rotation (in radians) counterclockwise around the center
+    def rotate(self, theta, center=Vector(0, 0)):
+        if not isNumber(theta):
+            raise TypeError('Rotation angle must be a number')
+        if not Vector2.isVector2(center):
+            raise TypeError('Rotation center must be a Vector2')
+            
+        _translated = self - center
+        _rotated =  self.__class__(
+            cos(theta)*_translated.x - sin(theta)*_translated.y,
+            sin(theta)*_translated.x + cos(theta)*_translated.y
         )
+        return _rotated + center
 
 
 class Vector3(Vector):
