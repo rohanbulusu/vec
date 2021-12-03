@@ -171,3 +171,16 @@ class Vector3(Vector):
             self.z*other.x - self.x*other.z,
             self.x*other.y - self.y*other.x
         )
+    
+
+# cast iterable to Vector2
+def Vec2(vec):
+    if not Vector2.isVector2(vec) or len(vec) != 2:
+        raise ValueError(f'Cannot cast {vec} to Vector2')
+    return Vector2(*vec)
+
+# cast iterable to Vector3
+def Vec3(vec):
+    if not Vector3.isVector3(vec) or len(vec) != 3:
+        raise ValueError(f'Cannot cast {vec} to Vector3')
+    return Vector3(*vec)
