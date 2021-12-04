@@ -27,7 +27,7 @@ class Matrix:
 
     # iterator protocol
     def __iter__(self):
-        return next(self):
+        return next(self)
 
     def __next__(self):
         yield from self.rows
@@ -111,7 +111,7 @@ class Matrix:
         # matrix-scalar multiplication
         if isNumber(other):
             return self.__class__(*[
-                [other*c for c in row] for row in self.rows]
+                [other*c for c in row] for row in self.rows
             ])
 
         raise TypeError(f'Cannot multiply Matrix with {type(other)}')
