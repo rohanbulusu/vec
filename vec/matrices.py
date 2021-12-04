@@ -120,25 +120,3 @@ class Matrix:
         if isNumber(other):
             return self * (1/other)
         raise ArithmeticError(f'Cannot divide {type(self)} by a {type(other)}')
-
-
-# Identity matrices
-_identity_wrapper = namedtuple('identity_wrapper', ['S2', 'S3', 'S4'])
-
-Identity = _identity_wrapper(
-    Matrix(
-        [1, 0],
-        [0, 1]
-    ),
-    Matrix(
-        [1, 0, 0],
-        [0, 1, 0],
-        [0, 0, 1]
-    ),
-    Matrix(
-        [1, 0, 0, 0],
-        [0, 1, 0, 0],
-        [0, 0, 1, 0],
-        [0, 0, 0, 1]
-    )
-)
