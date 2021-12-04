@@ -123,7 +123,7 @@ class Matrix:
 
 
 # Identity matrices
-_identity_wrapper = namedtuple('identity_wrapper', ['2', '3', '4'])
+_identity_wrapper = namedtuple('identity_wrapper', ['S2', 'S3', 'S4'])
 
 Identity = _identity_wrapper(
     Matrix(
