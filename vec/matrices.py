@@ -107,6 +107,12 @@ class Matrix:
                         self[i][k]*other[k][j] for k in range(self.dim.cols)
                     ])
             return self.__class__(*_new)
+    
+    # handedness for Vector multiplication
+    def __rmul__(self, other):
+        if Vector.isVector(other):
+            raise ArithmeticError('Matrix-vector multiplication goes from right to left: Matrix x Vector')
+        return self * other
 
         # matrix-scalar multiplication
         if isNumber(other):
