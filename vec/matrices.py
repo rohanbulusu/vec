@@ -1,8 +1,8 @@
 
 from collections import namedtuple
 
-from vectors import Vector, Vector2, Vector3, Vec2, Vec3
-from utils import isNumber, isSinglyNestedList
+from vectors import Vector
+from utils import isNumber
 
 _dimension = namedtuple('dim', ['rows', 'cols'])
 
